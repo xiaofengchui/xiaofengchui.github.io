@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://meetbychance.cn/2017/07/28/9Wireshark的使用/index.html">
 <meta property="og:site_name" content="邂逅">
 <meta property="og:description" content="Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。">
-<meta property="og:updated_time" content="2017-08-03T08:39:29.694Z">
+<meta property="og:updated_time" content="2017-08-04T09:23:54.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="9 Wireshark的使用">
 <meta name="twitter:description" content="Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。">
@@ -352,7 +352,7 @@
 
       
         <p>Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。<a id="more"></a></p>
-<h3 id="1-捕捉过滤器"><a href="#1-捕捉过滤器" class="headerlink" title="1 捕捉过滤器"></a>1 捕捉过滤器</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>捕捉过滤器的语法与其它使用Lipcap（Linux）或者Winpcap（Windows）库开发的软件一样，比如著名的TCPdump。捕捉过滤器必须在开始捕捉前设置完毕，这一点跟显示过滤器是不同的。 </p>
+<h3 id="捕捉过滤器"><a href="#捕捉过滤器" class="headerlink" title="捕捉过滤器"></a>捕捉过滤器</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>捕捉过滤器的语法与其它使用Lipcap（Linux）或者Winpcap（Windows）库开发的软件一样，比如著名的TCPdump。捕捉过滤器必须在开始捕捉前设置完毕，这一点跟显示过滤器是不同的。 </p>
 <p>设置捕捉过滤器的步骤是：<br>1    选择 capture -&gt; options。<br>2    填写”capture filter”栏或者点击”capture filter”按钮为您的过滤器起一个名字并保存，以便在今后的捕捉中继续使用这个过滤器。<br>3    点击开始（Start）进行捕捉。 </p>
 <p>语法：  Protocol  Direction  Host(s)  Value  Logical Operations  Other expression<br>例子：  tcp  dst  10.1.1.1  80  and  tcp  dst  10.2.2.2  3128</p>
 <p>Protocol（协议）:<br>可能的值: ether, fddi, ip, arp, rarp, decnet, lat, sca, moprc, mopdl, tcp and udp.<br>如果没有特别指明是什么协议，则默认使用所有支持的协议。</p>
@@ -362,7 +362,7 @@
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>1、tcp dst port 3128<br>显示目的TCP端口为3128的封包。<br>2、ip src host 10.1.1.1<br>显示来源IP地址为10.1.1.1的封包。<br>3、host 10.1.2.3<br>显示目的或来源IP地址为10.1.2.3的封包。<br>4、src portrange 2000-2500<br>显示来源为UDP或TCP，并且端口号在2000至2500范围内的封包。<br>5、not imcp<br>显示除了icmp以外的所有封包。（icmp通常被ping工具使用）<br>6、src host 10.7.2.12 and not dst net 10.200.0.0/16<br>显示来源IP地址为10.7.2.12，但目的地不是10.200.0.0/16的封包。<br>7、(src host 10.4.1.12 or src net 10.6.0.0/16) and tcp dst portrange 200-10000 and dst net 10.0.0.0/8<br>显示来源IP为10.4.1.12或者来源网络为10.6.0.0/16，目的地TCP端口号在200至10000之间，并且目的位于网络10.0.0.0/8内的所有封包。</p>
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>当使用关键字作为值时，需使用反斜杠“\”。<br>“ether proto \ip” (与关键字”ip”相同).<br>这样写将会以IP协议作为目标。</p>
 <p>“ip proto \icmp” (与关键字”icmp”相同).<br>这样写将会以ping工具常用的icmp作为目标。<br>可以在”ip”或”ether”后面使用”multicast”及”broadcast”关键字。<br>当您想排除广播请求时，”no broadcast”就会非常有用。</p>
-<h3 id="2-显示过滤器"><a href="#2-显示过滤器" class="headerlink" title="2 显示过滤器"></a>2 显示过滤器</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p>通常经过捕捉过滤器过滤后的数据还是很复杂。此时您可以使用显示过滤器进行更加细致的查找。<br>它的功能比捕捉过滤器更为强大，而且在您想修改过滤器条件时，并不需要重新捕捉一次。<br>语法：<br>Protocol-String1-String2-Comparison operator-Value-Logical Operations-Other expression<br>例子：ftp passive ip == 10.2.3.4 xor icmp.type</p>
+<h3 id="显示过滤器"><a href="#显示过滤器" class="headerlink" title="显示过滤器"></a>显示过滤器</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p>通常经过捕捉过滤器过滤后的数据还是很复杂。此时您可以使用显示过滤器进行更加细致的查找。<br>它的功能比捕捉过滤器更为强大，而且在您想修改过滤器条件时，并不需要重新捕捉一次。<br>语法：<br>Protocol-String1-String2-Comparison operator-Value-Logical Operations-Other expression<br>例子：ftp passive ip == 10.2.3.4 xor icmp.type</p>
 <p>Protocol（协议）:<br>您可以使用大量位于OSI模型第2至7层的协议。点击”Expression…”按钮后，您可以看到它们。<br>比如：IP，TCP，DNS，SSH</p>
 <p>String1, String2(可选项):<br>协议的子类。<br>点击相关父类旁的”+”号，然后选择其子类。</p>
 <p>Comparison operators （比较运算符）:<br>可以使用6种比较运算符：<br>英文写法：C语言写法：含义：<br>eq    ==    等于<br>ne    !=    不等于<br>gt    &gt;    大于<br>lt    &lt;    小于<br>ge    &gt;=    大于等于<br>le    &lt;=    小于等于</p>
@@ -543,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-捕捉过滤器"><span class="nav-number">1.</span> <span class="nav-text">1 捕捉过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-显示过滤器"><span class="nav-number">2.</span> <span class="nav-text">2 显示过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子-1"><span class="nav-number">2.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他例子"><span class="nav-number">2.3.</span> <span class="nav-text">其他例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http过滤"><span class="nav-number">2.4.</span> <span class="nav-text">http过滤</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#捕捉过滤器"><span class="nav-number">1.</span> <span class="nav-text">捕捉过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示过滤器"><span class="nav-number">2.</span> <span class="nav-text">显示过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子-1"><span class="nav-number">2.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他例子"><span class="nav-number">2.3.</span> <span class="nav-text">其他例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http过滤"><span class="nav-number">2.4.</span> <span class="nav-text">http过滤</span></a></li></ol></li></ol></div>
             
 
           </div>
