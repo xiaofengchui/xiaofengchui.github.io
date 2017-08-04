@@ -1,4 +1,359 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Meet by Chance 邂逅"><title>5 安装Ubuntu14.04基本配置 | 邂逅</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">5 安装Ubuntu14.04基本配置</h1><a id="logo" href="/.">邂逅</a><p class="description">Not good enough to have.</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">5 安装Ubuntu14.04基本配置</h1><div class="post-meta">Jul 24, 2017<span> | </span><span class="category"><a href="/categories/blog/">blog</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><p>安装ubuntu14.04后一些配置，包括设置root用户密码、安装ssh、配置静态IP、防火墙ufw。<a id="more"></a></p>
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="安装ubuntu14.04后一些配置，包括设置root用户密码、安装ssh、配置静态IP、防火墙ufw。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5 安装Ubuntu14.04基本配置">
+<meta property="og:url" content="http://meetbychance.cn/2017/07/24/5安装ubuntu14.04基本配置/index.html">
+<meta property="og:site_name" content="邂逅">
+<meta property="og:description" content="安装ubuntu14.04后一些配置，包括设置root用户密码、安装ssh、配置静态IP、防火墙ufw。">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/5安装Ubuntu14.04基本配置1.png">
+<meta property="og:updated_time" content="2017-08-03T07:48:48.864Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5 安装Ubuntu14.04基本配置">
+<meta name="twitter:description" content="安装ubuntu14.04后一些配置，包括设置root用户密码、安装ssh、配置静态IP、防火墙ufw。">
+<meta name="twitter:image" content="http://xiaofengchui.github.io/pictures/5安装Ubuntu14.04基本配置1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://meetbychance.cn/2017/07/24/5安装ubuntu14.04基本配置/"/>
+
+
+
+
+
+  <title>5 安装Ubuntu14.04基本配置 | 邂逅</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">邂逅</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Not good enough to have.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://meetbychance.cn/2017/07/24/5安装ubuntu14.04基本配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Meet by Chance 邂逅">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="邂逅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">5 安装Ubuntu14.04基本配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T12:32:08+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>安装ubuntu14.04后一些配置，包括设置root用户密码、安装ssh、配置静态IP、防火墙ufw。<a id="more"></a></p>
 <h3 id="1-设置root用户密码"><a href="#1-设置root用户密码" class="headerlink" title="1 设置root用户密码"></a>1 设置root用户密码</h3><p>安装完Ubuntu 14.04后默认是没有主动设置root密码的，也就无法进入根用户。<br>1、sudo passwd<br>2、会提示输入新密码，输入完成后回车<br>3、然后提示再输入一次新密码以确认，然后回车，设置成功<br>docker@ubuntu:~$ sudo passwd<br>[sudo] password for docker:<br>输入新的 UNIX 密码：<br>重新输入新的 UNIX 密码：<br>passwd：已成功更新密码<br>注意：这个新密码就是root的密码，可以与当前用户的密码不同。<br>在终端中输入 su root，然后输入root的密码，验证成功即可切换到root用户。<br>在root用户下做完操作后，用exit命令即可退出root用户，退回当前登陆用户。<br><img src="http://xiaofengchui.github.io/pictures/5安装Ubuntu14.04基本配置1.png" alt=""></p>
 <h3 id="2-安装ssh"><a href="#2-安装ssh" class="headerlink" title="2 安装ssh"></a>2 安装ssh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Apt-get update</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Apt-get install openssh-server</div></pre></td></tr></table></figure>
@@ -16,4 +371,357 @@
 <p>3 开启/禁用相应端口或服务举例<br>sudo ufw allow 80 允许外部访问80端口<br>sudo ufw delete allow 80 禁止外部访问80 端口<br>sudo ufw allow from 192.168.1.1 允许此IP访问所有的本机端口<br>sudo ufw deny smtp 禁止外部访问smtp服务<br>sudo ufw delete allow smtp 删除上面建立的某条规则<br>sudo ufw deny proto tcp from 10.0.0.0/8 to 192.168.0.1 port 22 要拒绝所有的TCP流量从10.0.0.0/8 到192.168.0.1地址的22端口</p>
 <p>可以允许所有RFC1918网络（局域网/无线局域网的）访问这个主机（/8,/16,/12是一种网络分级）：<br>sudo ufw allow from 10.0.0.0/8<br>sudo ufw allow from 172.16.0.0/12<br>sudo ufw allow from 192.168.0.0/16</p>
 <h4 id="推荐设置"><a href="#推荐设置" class="headerlink" title="推荐设置"></a>推荐设置</h4><p>sudo apt-get install ufw<br>sudo ufw enable<br>sudo ufw default deny<br>这样设置已经很安全，如果有特殊需要，可以使用sudo ufw allow开启相应服务。</p>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://meetbychance.cn/2017/07/24/5安装ubuntu14.04基本配置/" data-id="cj5xm8uhp000698vadyq7q70y" class="article-share-link">分享</a><div class="tags"><a href="/tags/Linux/">Linux</a></div><div class="post-nav"><a href="/2017/07/26/6搭建docker漏洞s2-048测试环境并实验验证/" class="pre">6 搭建docker漏洞s2-048测试环境并实验验证</a><a href="/2017/06/27/4Windows某端口被占用/" class="next">4 Windows某端口被占用</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://meetbychance.cn"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Windows/" style="font-size: 15px;">Windows</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/VMware/" style="font-size: 15px;">VMware</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/28/9Wireshark的使用/">9 Wireshark的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/28/8TCPDump的使用/">8 TCPDump的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/27/7Sublime Text3配置PHP代码检查/">7 Sublime Text3配置PHP代码检查</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/26/6搭建docker漏洞s2-048测试环境并实验验证/">6 搭建docker漏洞s2-048测试环境并实验验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/24/5安装ubuntu14.04基本配置/">5 安装Ubuntu14.04基本配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/4Windows某端口被占用/">4 Windows某端口被占用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/3虚拟机的三种网络模式/">3 虚拟机的三种网络模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/23/2使用Hexo搭建个人博客/">2 使用Hexo搭建个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/22/1hello-world/">1 Hello World</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="不忘初心·安得始终" target="_blank">不忘初心·安得始终</a><ul></ul><a href="http://www.example2.com/" title="不够优秀·何以拥有" target="_blank">不够优秀·何以拥有</a><ul></ul><a href="http://www.example3.com/" title="Not good enough to have." target="_blank">Not good enough to have.</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">邂逅</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/27/4Windows某端口被占用/" rel="next" title="4 Windows某端口被占用">
+                <i class="fa fa-chevron-left"></i> 4 Windows某端口被占用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/26/6搭建docker漏洞s2-048测试环境并实验验证/" rel="prev" title="6 搭建docker漏洞s2-048测试环境并实验验证">
+                6 搭建docker漏洞s2-048测试环境并实验验证 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Meet by Chance 邂逅" />
+          <p class="site-author-name" itemprop="name">Meet by Chance 邂逅</p>
+           
+              <p class="site-description motion-element" itemprop="description">Meet by Chance 邂逅</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-设置root用户密码"><span class="nav-number">1.</span> <span class="nav-text">1 设置root用户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装ssh"><span class="nav-number">2.</span> <span class="nav-text">2 安装ssh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置静态IP"><span class="nav-number">3.</span> <span class="nav-text">3 配置静态IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-防火墙ufw"><span class="nav-number">4.</span> <span class="nav-text">4 防火墙ufw</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">4.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">4.2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐设置"><span class="nav-number">4.3.</span> <span class="nav-text">推荐设置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Meet by Chance 邂逅</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
