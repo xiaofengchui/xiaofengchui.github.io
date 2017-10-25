@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://meetbychance.cn/2017/09/05/15ESX虚拟机迁移/index.html">
 <meta property="og:site_name" content="邂逅">
 <meta property="og:description" content="Vmware vCenter Converter Standalone是一种用于将虚拟机和物理机转换为VMware虚拟机的可扩展解决方案。">
-<meta property="og:updated_time" content="2017-10-25T18:17:51.352Z">
+<meta property="og:updated_time" content="2017-10-25T18:30:35.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="15 ESX虚拟机迁移">
 <meta name="twitter:description" content="Vmware vCenter Converter Standalone是一种用于将虚拟机和物理机转换为VMware虚拟机的可扩展解决方案。">
@@ -396,7 +396,7 @@
 <h3 id="物理机的冷克隆与热克隆"><a href="#物理机的冷克隆与热克隆" class="headerlink" title="物理机的冷克隆与热克隆"></a>物理机的冷克隆与热克隆</h3><p>•    热克隆又叫实时克隆或联机克隆，用于在源计算机运行其操作系统的过程中转换该源计算机，由于在转换期间进程继续在源计算机上运行，因此生成的虚拟机不是源计算机的精确副本，可以设置Converter Standalone使其在热克隆后将目标虚拟机与源计算机同步，该操作允许将物理机源无缝迁移到虚拟机目标，启动目标计算机，将接管源计算机操作，尽可能缩短停机时间<br>•    冷克隆又叫脱机克隆，用于在源计算机没有运行其操作系统时克隆些源计算机。在冷克隆计算机时，通过其上具有操作系统和vCenter Converter应用程序的CD重新引导源计算机。冷克隆可以创建最一致的源计算机副本。</p>
 <h3 id="Windows与Linux的物理机源的远程热克隆"><a href="#Windows与Linux的物理机源的远程热克隆" class="headerlink" title="Windows与Linux的物理机源的远程热克隆"></a>Windows与Linux的物理机源的远程热克隆</h3><p>•    在Windows转换中，Converter Standalone代理将安装到源计算机上。<br>•    在Linux转换中，在源计算机上不会部署任何代理。在目标ESX/ESXi主机上会创建并部署助手虚拟机，之后，源数据会从源Linux计算机复制到助手虚拟机。转换完成后，助手虚拟机将关闭，在下次启动后会成为目标虚拟机。</p>
 <h3 id="转换选项means（★★★★★）"><a href="#转换选项means（★★★★★）" class="headerlink" title="转换选项means（★★★★★）"></a>转换选项means（★★★★★）</h3><p>Powered-on machine，迁移正运行的计算机；</p>
-<p><font color="#ff00ff" face="微软雅黑">VMware Infrastructure virtual machine，迁移ESX上的虚拟机（可将一个ESX上的虚拟机迁移到另一ESX上）；</font><br>VMware Workstation or other VMware virtual machine，迁移VMware Workstation中的虚拟机或从虚拟机文件迁移。</p>
+<p><font color="#ff00ff" face="微软雅黑">VMware Infrastructure virtual machine，迁移ESX上的虚拟机（可将一个ESX上的虚拟机迁移到另一ESX上）；</font> <br><br>VMware Workstation or other VMware virtual machine，迁移VMware Workstation中的虚拟机或从虚拟机文件迁移。 <br> <br></p>
 <p>其他参考：<br>1 <a href="http://lx.wxqrcode.com/index.php/post/6.html" target="_blank" rel="external">如何将Vmware Esxi下虚拟机数据迁移到另外一个ESXi主机</a><br>2 <a href="http://blog.csdn.net/u010889186/article/details/18412643" target="_blank" rel="external">esx 迁移</a><br>3 <a href="https://wenku.baidu.com/view/7a8bd910b9f3f90f77c61b55.html" target="_blank" rel="external">在VMware esxi虚拟机,系统克隆,迁移的方法（由虚拟机文件手工迁移）</a><br>4 <a href="http://dngood.blog.51cto.com/446195/685082/" target="_blank" rel="external">VMware Converter 迁移物理机到esxi虚拟机</a></p>
 
       
