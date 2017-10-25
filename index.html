@@ -392,15 +392,14 @@
 
       
         
-          
-            <p>Linux下使用Apache搭建http文件服务器，这里对Apache的安装不再赘述！仅说明安装后的</p>
-<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><p>vi /etc/apache2/apache2.conf<br>新增一下字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">DocumentRoot &quot;/var/www/html/&quot;</div><div class="line">&lt;Directory /var/www/html/&gt;</div><div class="line">        Options Indexes FollowSymLinks MultiViews</div><div class="line">        AllowOverride None</div><div class="line">        Order allow,deny</div><div class="line">        allow from all</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="修改目录权限"><a href="#修改目录权限" class="headerlink" title="修改目录权限"></a>修改目录权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 777 /var/www/</div></pre></td></tr></table></figure>
-<h3 id="删除index-html默认文件"><a href="#删除index-html默认文件" class="headerlink" title="删除index.html默认文件"></a>删除index.html默认文件</h3><p>删除/var/www/html/index.html默认文件</p>
-<h3 id="重启apache"><a href="#重启apache" class="headerlink" title="重启apache"></a>重启apache</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service apache2 restart</div></pre></td></tr></table></figure>
-<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>将文件或文件目录放置于/var/www/html/目录下即可<br>访问<a href="http://ip" target="_blank" rel="external">http://ip</a></p>
-
-          
+          <p>Linux下使用Apache搭建http文件服务器，这里对Apache的安装不再赘述！本文仅说明安装Apache后的其他操作。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/16/13使用Apache搭建http文件服务器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
