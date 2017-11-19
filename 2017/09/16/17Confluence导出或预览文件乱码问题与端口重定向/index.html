@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Confluence," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="使用Confluence过程中遇到了很多问题，这里进行一下汇总。分别是Confluence导出为PDF乱码；Confluence附件预览中文乱码；Confluence改服务端口8090 to 80；域名解析指向Confluence服务器；Confluence插件破解等。">
+<meta name="keywords" content="Confluence">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17 Confluence导出或预览文件乱码问题与端口重定向">
+<meta property="og:url" content="http://meetbychance.cn/2017/09/16/17Confluence导出或预览文件乱码问题与端口重定向/index.html">
+<meta property="og:site_name" content="邂逅">
+<meta property="og:description" content="使用Confluence过程中遇到了很多问题，这里进行一下汇总。分别是Confluence导出为PDF乱码；Confluence附件预览中文乱码；Confluence改服务端口8090 to 80；域名解析指向Confluence服务器；Confluence插件破解等。">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向1.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向2.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向3.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向4.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向5.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向6.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向7.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向8.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向9.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向10.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向11.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向12.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向13.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向14.png">
+<meta property="og:updated_time" content="2017-11-19T17:31:55.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="17 Confluence导出或预览文件乱码问题与端口重定向">
+<meta name="twitter:description" content="使用Confluence过程中遇到了很多问题，这里进行一下汇总。分别是Confluence导出为PDF乱码；Confluence附件预览中文乱码；Confluence改服务端口8090 to 80；域名解析指向Confluence服务器；Confluence插件破解等。">
+<meta name="twitter:image" content="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '1V5BPZPQR3',
+      apiKey: '522bbaeb52a08a06ea50cdcc29d7b263',
+      indexName: 'meetbychance',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://meetbychance.cn/2017/09/16/17Confluence导出或预览文件乱码问题与端口重定向/"/>
+
+
+
+
+
+  <title>17 Confluence导出或预览文件乱码问题与端口重定向 | 邂逅</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">邂逅</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Not good enough to have.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://meetbychance.cn/2017/09/16/17Confluence导出或预览文件乱码问题与端口重定向/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="邂逅">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="邂逅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">17 Confluence导出或预览文件乱码问题与端口重定向</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T01:07:36+08:00">
+                2017-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>使用Confluence过程中遇到了很多问题，这里进行一下汇总。分别是Confluence导出为PDF乱码；Confluence附件预览中文乱码；Confluence改服务端口8090 to 80；域名解析指向Confluence服务器；Confluence插件破解等。<a id="more"></a></p>
+<h2 id="Confluence导出为PDF乱码"><a href="#Confluence导出为PDF乱码" class="headerlink" title="Confluence导出为PDF乱码"></a>Confluence导出为PDF乱码</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>如下图这是一篇正常的文章，带有图片。点击“导出为PDF”格式。<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向1.png" alt=""><br>查看导出PDF如下图，汉字显示出现乱码：<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向2.png" alt=""></p>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>默认的PDF导出是不支持中文的。<br>需要在Confluence-全局配置-PDF导出语言支持中上传一个中文字体。<br>之后就完美支持导出中文了。个人一般用simhei.ttf这个字体。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>参考：<a href="http://www.confluence.cn/questions/2916800/confluence%E4%B8%AD%E7%9A%84%E6%96%87%E6%A1%A3%E5%AF%BC%E5%87%BApdf%E6%97%B6%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97%E9%83%BD%E4%B8%8D%E8%A7%81%E4%BA%86%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3" target="_blank" rel="external">Confluence中的文档导出PDF时,代码注释中的汉字都不见了,怎么解决？</a></p>
+<p>右上角选择“用户管理”，进入站点管理（必须admin用户或者用户在confluence-administrators用户组里面才有权限操作）<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向3.png" alt=""><br>选择左侧“PDF导出语言支持”，选择simhei.ttf文件进行安装。<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向4.png" alt=""><br>安装完成即可解决问题，如下图：<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向5.png" alt=""></p>
+<h2 id="Confluence附件预览中文乱码"><a href="#Confluence附件预览中文乱码" class="headerlink" title="Confluence附件预览中文乱码"></a>Confluence附件预览中文乱码</h2><h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><p>如下图这是一篇文章内插入的Word文件，带有图片。点击文件进行预览，中文显示乱码。<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向6.png" alt=""><br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向7.png" alt=""></p>
+<h3 id="问题原因-1"><a href="#问题原因-1" class="headerlink" title="问题原因"></a>问题原因</h3><p>confluence预览字体库中缺少支持字体！原因是缺乏微软字体。</p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><p>参考：<a href="http://www.confluence.cn/questions/6719004/confluence-%E9%99%84%E4%BB%B6%E9%A2%84%E8%A7%88%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81" target="_blank" rel="external">confluence附件预览中文乱码</a></p>
+<h4 id="支持字体导入"><a href="#支持字体导入" class="headerlink" title="支持字体导入"></a>支持字体导入</h4><p>先安装想要的字体, 如微软雅黑, 宋体等, 从Windows系统下C:\Windows\Fonts下拷到confluence linux的/usr/share/fonts下, 新建个目录比如msttcore放进去, 一开始我只放进去一个微软雅黑字体（图中选中的那个），但是MAC系统上编辑的文件上传上去还是乱码，后来直接将C:\Windows\Fonts下所有字体文件全部放了进去，乱码就解决了。<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向8.png" alt=""><br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向9.png" alt=""></p>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>在confluence的安装目录, 如/opt/atlassian/confluence/bin下找到setenv.sh, 找到CATALINA_OPTS, 加入一行<br>CATALINA_OPTS=”-Dconfluence.document.conversion.fontpath=/usr/share/fonts/msttcore/ ${CATALINA_OPTS}”<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向10.png" alt=""></p>
+<h4 id="清除预览缓存"><a href="#清除预览缓存" class="headerlink" title="清除预览缓存"></a>清除预览缓存</h4><p>清空confluence的home下viewfile目录和shared-home/dcl-document目录里的所有缓存文档文件, 不清空的话, confluence预览旧文件时还是会显示方框,只有新文件才会正常.<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向11.png" alt=""></p>
+<h4 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h4><p>service confluence restart重启confluence服务后问题解决！<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向12.png" alt=""></p>
+<h2 id="Confluence改服务端口8090-to-80"><a href="#Confluence改服务端口8090-to-80" class="headerlink" title="Confluence改服务端口8090 to 80"></a>Confluence改服务端口8090 to 80</h2><p>在ubuntu主机上安装confluence时可以选择服务端口为80（默认选择8090），当时默认的8090，后来需要改到80，就找到了iptables端口重定向。</p>
+<h3 id="新增iptables规则"><a href="#新增iptables规则" class="headerlink" title="新增iptables规则"></a>新增iptables规则</h3><p>参考：<a href="http://archive.answers.unlimax.com/2126" target="_blank" rel="external">Confluence Linux下改端口8090 to 80</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8090</div><div class="line">iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-port 8090</div></pre></td></tr></table></figure></p>
+<h3 id="保存iptables规则"><a href="#保存iptables规则" class="headerlink" title="保存iptables规则"></a>保存iptables规则</h3><p>参考：<a href="http://blog.csdn.net/sqzhao/article/details/10174955" target="_blank" rel="external">Ubuntu下iptables的保存</a><br>sudo iptables-save &gt; /etc/iptables.up.rules<br>vi /etc/network/interfaces在eth0下添加pre-up iptables-restore &lt; /etc/iptables.up.rules<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向13.png" alt=""></p>
+<h3 id="端口重定向成功"><a href="#端口重定向成功" class="headerlink" title="端口重定向成功"></a>端口重定向成功</h3><p>重启系统后iptables在启动时自动加载，端口重定向成功！<br><img src="http://xiaofengchui.github.io/pictures/17Confluence导出或预览文件乱码问题与端口重定向/17Confluence导出或预览文件乱码问题与端口重定向14.png" alt=""></p>
+<h2 id="域名解析指向Confluence服务器"><a href="#域名解析指向Confluence服务器" class="headerlink" title="域名解析指向Confluence服务器"></a>域名解析指向Confluence服务器</h2><p>域名解析地址可以为私有IP地址，将域名执行内网IP。相当于DNS流量从公网走了一圈，然后访问Confluence服务器的流量始终没有出内网。</p>
+<h2 id="Confluence插件破解"><a href="#Confluence插件破解" class="headerlink" title="Confluence插件破解"></a>Confluence插件破解</h2><p><a href="http://blog.csdn.net/liangzhiyang/article/details/68485664" target="_blank" rel="external">Confluence及其插件破解</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Confluence/" rel="tag"># Confluence</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/12/16Confluence安装破解与配置/" rel="next" title="16 Confluence安装破解与配置">
+                <i class="fa fa-chevron-left"></i> 16 Confluence安装破解与配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.jpg"
+               alt="邂逅" />
+          <p class="site-author-name" itemprop="name">邂逅</p>
+           
+              <p class="site-description motion-element" itemprop="description">I am alone, but not lonly.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Confluence导出为PDF乱码"><span class="nav-number">1.</span> <span class="nav-text">Confluence导出为PDF乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因"><span class="nav-number">1.2.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">1.3.</span> <span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Confluence附件预览中文乱码"><span class="nav-number">2.</span> <span class="nav-text">Confluence附件预览中文乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因-1"><span class="nav-number">2.2.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法-1"><span class="nav-number">2.3.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#支持字体导入"><span class="nav-number">2.3.1.</span> <span class="nav-text">支持字体导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.3.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除预览缓存"><span class="nav-number">2.3.3.</span> <span class="nav-text">清除预览缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启服务"><span class="nav-number">2.3.4.</span> <span class="nav-text">重启服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Confluence改服务端口8090-to-80"><span class="nav-number">3.</span> <span class="nav-text">Confluence改服务端口8090 to 80</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新增iptables规则"><span class="nav-number">3.1.</span> <span class="nav-text">新增iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存iptables规则"><span class="nav-number">3.2.</span> <span class="nav-text">保存iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口重定向成功"><span class="nav-number">3.3.</span> <span class="nav-text">端口重定向成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名解析指向Confluence服务器"><span class="nav-number">4.</span> <span class="nav-text">域名解析指向Confluence服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Confluence插件破解"><span class="nav-number">5.</span> <span class="nav-text">Confluence插件破解</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邂逅</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
