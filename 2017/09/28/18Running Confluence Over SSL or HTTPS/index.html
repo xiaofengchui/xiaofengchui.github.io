@@ -101,19 +101,19 @@
 <meta property="og:url" content="http://meetbychance.cn/2017/09/28/18Running Confluence Over SSL or HTTPS/index.html">
 <meta property="og:site_name" content="邂逅">
 <meta property="og:description" content="该文档告诉您如何配置Confluence，以便通过HTTPS (HTTP over SSL)访问，以便您的Confluence登录和数据在传输到Confluence期间被加密。SSL加密是保护您的合流数据和用户的一种好方法。防止登录被外部人拦截和读取。">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS1.png">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS2.png">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS3.png">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS4.png">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS5.png">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS6.png">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS7.png">
-<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS8.png">
-<meta property="og:updated_time" content="2018-05-02T03:04:55.577Z">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS1.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS2.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS3.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS4.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS5.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS6.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS7.png">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS8.png">
+<meta property="og:updated_time" content="2018-05-02T04:26:25.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18 Running Confluence Over SSL or HTTPS">
 <meta name="twitter:description" content="该文档告诉您如何配置Confluence，以便通过HTTPS (HTTP over SSL)访问，以便您的Confluence登录和数据在传输到Confluence期间被加密。SSL加密是保护您的合流数据和用户的一种好方法。防止登录被外部人拦截和读取。">
-<meta name="twitter:image" content="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS1.png">
+<meta name="twitter:image" content="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS1.png">
 
 
 
@@ -400,14 +400,14 @@
       
         <p>该文档告诉您如何配置Confluence，以便通过HTTPS (HTTP over SSL)访问，以便您的Confluence登录和数据在传输到Confluence期间被加密。SSL加密是保护您的合流数据和用户的一种好方法。防止登录被外部人拦截和读取。<a id="more"></a></p>
 <h3 id="创建或申请一个新的SSL证书"><a href="#创建或申请一个新的SSL证书" class="headerlink" title="创建或申请一个新的SSL证书"></a>创建或申请一个新的SSL证书</h3><p>证书选项1 - 创建自签名证书<br>使用Java的keytool实用程序来生成证书：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$JAVA_HOME/bin/keytool -genkeypair -keysize 2048 -alias tomcat -keyalg RSA -sigalg SHA256withRSA</div><div class="line">keystore password : 1qaz2wsx</div></pre></td></tr></table></figure></p>
-<p><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS1.png" alt=""><br><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Tomcat password：1qaz2wsx</div></pre></td></tr></table></figure></p>
-<p>证书默认生成的路径：<br>在Windows上： C:\users#CURRENT_USER#.keystore<br>在OS X和基于UNIX的系统上： ~/.keystore<br>Linux系统下，证书默认生成在/root/目录下，名为.keystore，如下图：<br><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS3.png" alt=""><br>这里我将证书拷贝到了/opt/atlassian/confluence/conf/.keystore。</p>
+<p><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS1.png" alt=""><br><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Tomcat password：1qaz2wsx</div></pre></td></tr></table></figure></p>
+<p>证书默认生成的路径：<br>在Windows上： C:\users#CURRENT_USER#.keystore<br>在OS X和基于UNIX的系统上： ~/.keystore<br>Linux系统下，证书默认生成在/root/目录下，名为.keystore，如下图：<br><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS3.png" alt=""><br>这里我将证书拷贝到了/opt/atlassian/confluence/conf/.keystore。</p>
 <h3 id="在Confluence安装中修改服务器配置文件"><a href="#在Confluence安装中修改服务器配置文件" class="headerlink" title="在Confluence安装中修改服务器配置文件"></a>在Confluence安装中修改服务器配置文件</h3><ol>
 <li>在此位置编辑服务器配置文件：&lt; CONFLUENCE_INSTALLATION&gt;/conf/server.xml。我的目录为/opt/atlassian/confluence/conf/server.xml</li>
 <li>取消注释以下几行：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;Connector port=&quot;8443&quot; maxHttpHeaderSize=&quot;8192&quot;</div><div class="line">     maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot;</div><div class="line">     protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</div><div class="line">     enableLookups=&quot;false&quot; disableUploadTimeout=&quot;true&quot;</div><div class="line">     acceptCount=&quot;100&quot; scheme=&quot;https&quot; secure=&quot;true&quot;</div><div class="line">     clientAuth=&quot;false&quot; sslProtocol=&quot;TLSv1.2&quot;</div><div class="line">     sslEnabledProtocols=&quot;TLSv1.2&quot; SSLEnabled=&quot;true&quot;</div><div class="line">     URIEncoding=&quot;UTF-8&quot; keystorePass=&quot;&lt;MY_CERTIFICATE_PASSWORD&gt;&quot;/&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>下图中尖括号去掉：<br><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS4.png" alt=""></p>
+<p>下图中尖括号去掉：<br><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS4.png" alt=""></p>
 <ol>
 <li>将文本&lt; MY_CERTIFICATE_PASSWORD&gt;用您为证书指定的密码替换。</li>
 <li>确保属性值对SSLEnabled=”true”是Connector元素的一部分，如上所示。如果此属性不存在，则尝试访问Confluence将超时。</li>
@@ -424,12 +424,12 @@
 </ol>
 <h3 id="将Confluence基本URL更改为HTTPS"><a href="#将Confluence基本URL更改为HTTPS" class="headerlink" title="将Confluence基本URL更改为HTTPS"></a>将Confluence基本URL更改为HTTPS</h3><ol>
 <li>在浏览器中，进入Confluence管理控制台。</li>
-<li>将服务器基本URL更改为HTTPS。请参阅配置服务器基本URL的文档。改为如下图所示：<br><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS5.png" alt=""></li>
-<li>重新启动Confluence并访问Confluence https://<my_base_url>:8443/。<br><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS6.png" alt=""></my_base_url></li>
+<li>将服务器基本URL更改为HTTPS。请参阅配置服务器基本URL的文档。改为如下图所示：<br><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS5.png" alt=""></li>
+<li>重新启动Confluence并访问Confluence https://<my_base_url>:8443/。<br><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS6.png" alt=""></my_base_url></li>
 </ol>
 <h3 id="添加安全约束将所有URL重定向到HTTPS"><a href="#添加安全约束将所有URL重定向到HTTPS" class="headerlink" title="添加安全约束将所有URL重定向到HTTPS"></a>添加安全约束将所有URL重定向到HTTPS</h3><p>编辑文件<confluence_installation>/confluence/WEB-INF/web.xml，我的路径为：/opt/atlassian/confluence/confluence/WEB-INF/web.xml。<br>将以下声明添加到该标记之前的文件末尾：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;security-constraint&gt;</div><div class="line">  &lt;web-resource-collection&gt;</div><div class="line">    &lt;web-resource-name&gt;Restricted URLs&lt;/web-resource-name&gt;</div><div class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</div><div class="line">  &lt;/web-resource-collection&gt;</div><div class="line">  &lt;user-data-constraint&gt;</div><div class="line">    &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;</div><div class="line">  &lt;/user-data-constraint&gt;</div><div class="line">&lt;/security-constraint&gt;</div></pre></td></tr></table></figure></confluence_installation></p>
-<p><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS7.png" alt=""><br>重新启动Confluence并访问http：// localhost：8090。您应该重定向到https：// localhost：8443 / login.action。</p>
-<h3 id="访问http-IP-会自动跳转，如下图："><a href="#访问http-IP-会自动跳转，如下图：" class="headerlink" title="访问http : // IP 会自动跳转，如下图："></a>访问http : // IP 会自动跳转，如下图：</h3><p><img src="http://xiaofengchui.github.io/pictures/18 Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS8.png" alt=""></p>
+<p><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS7.png" alt=""><br>重新启动Confluence并访问http：// localhost：8090。您应该重定向到https：// localhost：8443 / login.action。</p>
+<h3 id="访问http-IP-会自动跳转，如下图："><a href="#访问http-IP-会自动跳转，如下图：" class="headerlink" title="访问http : // IP 会自动跳转，如下图："></a>访问http : // IP 会自动跳转，如下图：</h3><p><img src="http://xiaofengchui.github.io/pictures/18Running Confluence Over SSL or HTTPS/18 Running Confluence Over SSL or HTTPS8.png" alt=""></p>
 <p>参考：<br>1 <a href="https://confluence.atlassian.com/doc/running-confluence-over-ssl-or-https-161203.html" title="通过SSL或HTTPS运行Confluence" target="_blank" rel="external">通过SSL或HTTPS运行Confluence</a><br>2 <a href="https://confluence.atlassian.com/doc/configuring-the-server-base-url-148592.html" title="配置服务器基本URL" target="_blank" rel="external">配置服务器基本URL</a><br>3 <a href="https://support.gliffy.com/hc/en-us/articles/217895448-Using-Gliffy-Atlassian-Plugins-with-HTTPS-SSL" title="使用Gliffy Atlassian插件与HTTPS / SSL" target="_blank" rel="external">使用Gliffy Atlassian插件与HTTPS / SSL</a><br>4 <a href="https://www.cnblogs.com/wanghaoyuhappy/p/5267702.html" title="配置Tomcat使用https协议" target="_blank" rel="external">配置Tomcat使用https协议</a></p>
 
       
@@ -470,6 +470,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/08/19Python开启HTTP和FTP简单访问实现文件共享/" rel="prev" title="19 Python开启HTTP和FTP简单访问实现文件共享">
+                19 Python开启HTTP和FTP简单访问实现文件共享 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -546,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -568,7 +572,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
