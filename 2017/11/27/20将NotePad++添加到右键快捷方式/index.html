@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="Windows," />
 
 
 
@@ -94,17 +94,19 @@
 
 
 
-<meta name="description" content="Linux下使用Apache搭建http文件服务器，这里对Apache的安装不再赘述！本文仅说明安装Apache后的其他操作。">
-<meta name="keywords" content="Linux">
+<meta name="description" content="将NotePad++、Sublime添加到右键快捷方式，方便快捷，其他程序同理。">
+<meta name="keywords" content="Windows">
 <meta property="og:type" content="article">
-<meta property="og:title" content="13 使用Apache搭建http文件服务器">
-<meta property="og:url" content="http://meetbychance.cn/2017/08/16/13使用Apache搭建http文件服务器/index.html">
+<meta property="og:title" content="20 将NotePad++添加到右键快捷方式">
+<meta property="og:url" content="http://meetbychance.cn/2017/11/27/20将NotePad++添加到右键快捷方式/index.html">
 <meta property="og:site_name" content="邂逅">
-<meta property="og:description" content="Linux下使用Apache搭建http文件服务器，这里对Apache的安装不再赘述！本文仅说明安装Apache后的其他操作。">
-<meta property="og:updated_time" content="2017-10-25T14:40:06.420Z">
+<meta property="og:description" content="将NotePad++、Sublime添加到右键快捷方式，方便快捷，其他程序同理。">
+<meta property="og:image" content="http://xiaofengchui.github.io/pictures/20将NotePad++添加到右键快捷方式/20将NotePad++添加到右键快捷方式.png">
+<meta property="og:updated_time" content="2018-05-15T08:55:34.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="13 使用Apache搭建http文件服务器">
-<meta name="twitter:description" content="Linux下使用Apache搭建http文件服务器，这里对Apache的安装不再赘述！本文仅说明安装Apache后的其他操作。">
+<meta name="twitter:title" content="20 将NotePad++添加到右键快捷方式">
+<meta name="twitter:description" content="将NotePad++、Sublime添加到右键快捷方式，方便快捷，其他程序同理。">
+<meta name="twitter:image" content="http://xiaofengchui.github.io/pictures/20将NotePad++添加到右键快捷方式/20将NotePad++添加到右键快捷方式.png">
 
 
 
@@ -133,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://meetbychance.cn/2017/08/16/13使用Apache搭建http文件服务器/"/>
+  <link rel="canonical" href="http://meetbychance.cn/2017/11/27/20将NotePad++添加到右键快捷方式/"/>
 
 
 
 
 
-  <title>13 使用Apache搭建http文件服务器 | 邂逅</title>
+  <title>20 将NotePad++添加到右键快捷方式 | 邂逅</title>
   
 
 
@@ -300,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://meetbychance.cn/2017/08/16/13使用Apache搭建http文件服务器/">
+    <link itemprop="mainEntityOfPage" href="http://meetbychance.cn/2017/11/27/20将NotePad++添加到右键快捷方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="邂逅">
@@ -317,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">13 使用Apache搭建http文件服务器</h1>
+          <h1 class="post-title" itemprop="name headline">20 将NotePad++添加到右键快捷方式</h1>
         
 
         <div class="post-meta">
@@ -329,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-16T13:45:21+08:00">
-                2017-08-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T22:19:34+08:00">
+                2017-11-27
               </time>
             
 
@@ -389,12 +391,13 @@
       
 
       
-        <p>Linux下使用Apache搭建http文件服务器，这里对Apache的安装不再赘述！本文仅说明安装Apache后的其他操作。<a id="more"></a></p>
-<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><p>vi /etc/apache2/apache2.conf<br>新增一下字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">DocumentRoot &quot;/var/www/html/&quot;</div><div class="line">&lt;Directory /var/www/html/&gt;</div><div class="line">        Options Indexes FollowSymLinks MultiViews</div><div class="line">        AllowOverride None</div><div class="line">        Order allow,deny</div><div class="line">        allow from all</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="修改目录权限"><a href="#修改目录权限" class="headerlink" title="修改目录权限"></a>修改目录权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 777 /var/www/</div></pre></td></tr></table></figure>
-<h3 id="删除index-html默认文件"><a href="#删除index-html默认文件" class="headerlink" title="删除index.html默认文件"></a>删除index.html默认文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm /var/www/html/index.html</div></pre></td></tr></table></figure>
-<h3 id="重启apache"><a href="#重启apache" class="headerlink" title="重启apache"></a>重启apache</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service apache2 restart</div></pre></td></tr></table></figure>
-<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>将文件或文件目录放置于/var/www/html/目录下即可<br>访问<a href="http://yourip" target="_blank" rel="external">http://yourip</a></p>
+        <p>将NotePad++、Sublime添加到右键快捷方式，方便快捷，其他程序同理。<a id="more"></a><br>首先看效果图：<br><img src="http://xiaofengchui.github.io/pictures/20将NotePad++添加到右键快捷方式/20将NotePad++添加到右键快捷方式.png" alt=""></p>
+<h3 id="写入注册表项"><a href="#写入注册表项" class="headerlink" title="写入注册表项"></a>写入注册表项</h3><p>接下来是操作方式：<br>首先在桌面上新建一个txt文本文档，然后将写入如下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line"></div><div class="line">[HKEY_CLASSES_ROOT\*\shell\NotePad++]</div><div class="line">@=&quot;NotePad++&quot;</div><div class="line">&quot;Icon&quot;=&quot;D:\\Software\\Notepad++\\notepad++.exe&quot;</div><div class="line"></div><div class="line">[HKEY_CLASSES_ROOT\*\shell\NotePad++\Command]</div><div class="line">@=&quot;\&quot;D:\\Software\\Notepad++\\notepad++.exe\&quot; \&quot;%1\&quot;&quot;</div></pre></td></tr></table></figure></p>
+<p>注意上面代码中的地址替换为你的软件在电脑中的真实路径就好了。<br>接下来将文件保存，将文件后缀名.txt 修改为.reg ，然后双击该文件写入注册表就好了。</p>
+<h3 id="删除注册表项"><a href="#删除注册表项" class="headerlink" title="删除注册表项"></a>删除注册表项</h3><p>将该功能删除：<br>当我们不想使用时使用如下代码卸载，也可以到注册表手动删除，这里不再赘述。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line">[-HKEY_CLASSES_ROOT\*\shell\NotePad++]</div></pre></td></tr></table></figure></p>
+<h3 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h3><h4 id="写入"><a href="#写入" class="headerlink" title="写入"></a>写入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line"></div><div class="line">[HKEY_CLASSES_ROOT\*\shell\SublimeText3]</div><div class="line">@=&quot;SublimeText3&quot;</div><div class="line">&quot;Icon&quot;=&quot;D:\\Sublime Text 3\\sublime_text.exe&quot;</div><div class="line"></div><div class="line">[HKEY_CLASSES_ROOT\*\shell\SublimeText3\Command]</div><div class="line">@=&quot;\&quot;D:\\Sublime Text 3\\sublime_text.exe\&quot; \&quot;%1\&quot;&quot;</div></pre></td></tr></table></figure>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line">[-HKEY_CLASSES_ROOT\*\shell\SublimeText3]</div></pre></td></tr></table></figure>
+<p>转载自：<a href="https://blog.csdn.net/u012234419/article/details/49734703" title="让NotePad++添加到右键快捷方式" target="_blank" rel="external">让NotePad++添加到右键快捷方式</a></p>
 
       
     </div>
@@ -412,7 +415,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
           
         </div>
       
@@ -425,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/10/12docker初识与基本使用/" rel="next" title="12 docker初识与基本使用">
-                <i class="fa fa-chevron-left"></i> 12 docker初识与基本使用
+              <a href="/2017/10/08/19Python开启HTTP和FTP简单访问实现文件共享/" rel="next" title="19 Python开启HTTP和FTP简单访问实现文件共享">
+                <i class="fa fa-chevron-left"></i> 19 Python开启HTTP和FTP简单访问实现文件共享
               </a>
             
           </div>
@@ -434,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/01/14最新webshell大合集/" rel="prev" title="14 最新webshell大合集">
-                14 最新webshell大合集 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑配置文件"><span class="nav-number">1.</span> <span class="nav-text">编辑配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改目录权限"><span class="nav-number">2.</span> <span class="nav-text">修改目录权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除index-html默认文件"><span class="nav-number">3.</span> <span class="nav-text">删除index.html默认文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启apache"><span class="nav-number">4.</span> <span class="nav-text">重启apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成"><span class="nav-number">5.</span> <span class="nav-text">完成</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写入注册表项"><span class="nav-number">1.</span> <span class="nav-text">写入注册表项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除注册表项"><span class="nav-number">2.</span> <span class="nav-text">删除注册表项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sublime"><span class="nav-number">3.</span> <span class="nav-text">Sublime</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写入"><span class="nav-number">3.1.</span> <span class="nav-text">写入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">3.2.</span> <span class="nav-text">删除</span></a></li></ol></li></ol></div>
             
 
           </div>
